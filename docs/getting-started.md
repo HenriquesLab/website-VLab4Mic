@@ -18,7 +18,7 @@ pip install vlab4mic
 **Including Jupyter notebook support:**
 
 ```bash
-pip install vlab4mic vlab4micjupyter
+pip install vlab4mic "vlab4micjupyter[local]"
 ```
 
 On first use, VLab4Mic may download required PDB/CIF structure files. These
@@ -34,7 +34,9 @@ Check that VLab4Mic is installed correctly:
 
 ```python
 import vlab4mic
-print(vlab4mic.__version__)
+from importlib.metadata import version
+
+print("VLab4Mic", version("vlab4mic"))
 ```
 
 Or run a minimal simulation:

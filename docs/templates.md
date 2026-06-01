@@ -73,7 +73,7 @@ Pre-configured probes tuned to particular structures.
 
 ### Thevenaz 2016 Variants
 
-Modality configurations tuned to the parameters reported in [Thevenaz *et al.* 2016](https://doi.org/10.1364/OPTICA.3.000557), for use in article figure reproductions.
+Modality configurations tuned to the parameters reported in Thevenaz *et al.* 2016, for use in article figure reproductions.
 
 | Modality | Description | PSF shape XYZ (nm) | Pixel size (nm) |
 | --- | --- | --- | --- |
