@@ -71,14 +71,14 @@ Pre-configured probes tuned to particular structures.
 | **SMLM** | Single-molecule localisation (effective image model) | 8 × 8 × 8 | 5 |
 | **Reference** | Idealised diffraction-limited reference | 5 × 5 × 5 | 5 |
 
-### Thevenaz 2016 Variants
+### Thevathasan 2019 Variants
 
-Modality configurations tuned to the parameters reported in Thevenaz *et al.* 2016, for use in article figure reproductions.
+Modality configurations (the `*_Thev2016` config family) tuned to the experimental parameters reported in [Thevathasan *et al.* 2019](https://doi.org/10.1038/s41592-019-0574-9), for use in article figure reproductions.
 
 | Modality | Description | PSF shape XYZ (nm) | Pixel size (nm) |
 | --- | --- | --- | --- |
-| **Widefield_Thev2016** | Widefield — Thevenaz 2016 parameters | 94 × 94 × 331 | 100 |
-| **Confocal_Thev2016** | Confocal — Thevenaz 2016 parameters | 94 × 94 × 331 | 70 |
-| **AiryScan_Thev2016** | AiryScan — Thevenaz 2016 parameters | 61 × 61 × 230 | 40 |
-| **STED_Thev2016** | STED — Thevenaz 2016 parameters | 15 × 15 × 20 | 15 |
-| **STORM_Thev2016** | STORM/SMLM — Thevenaz 2016 parameters | 8 × 8 × 8 | 5 |
+| **Widefield_Thev2016** | Widefield — Thevathasan 2019 parameters | 94 × 94 × 331 | 100 |
+| **Confocal_Thev2016** | Confocal — Thevathasan 2019 parameters | 94 × 94 × 331 | 70 |
+| **AiryScan_Thev2016** | AiryScan — Thevathasan 2019 parameters | 61 × 61 × 230 | 40 |
+| **STED_Thev2016** | STED — Thevathasan 2019 parameters | 15 × 15 × 20 | 15 |
+| **STORM_Thev2016** | STORM/SMLM — Thevathasan 2019 parameters | 8 × 8 × 8 | 5 |
