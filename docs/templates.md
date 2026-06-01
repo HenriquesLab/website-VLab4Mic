@@ -6,7 +6,10 @@ VLab4Mic ships with pre-configured templates for common structures, probes, virt
 
 ## Structures
 
-Any atomic structure in PDB or CIF format can be used with VLab4Mic. The following structures are bundled and used in example notebooks and probes.
+Any atomic structure in PDB or CIF format can be used with VLab4Mic. The package
+includes YAML templates and example IDs for the structures below; the
+corresponding CIF files are downloaded on first use and cached in
+`~/.vlab4mic/structures` unless `VLAB4MIC_STRUCTURE_DIR` is set.
 
 | Structure ID | Description | Database | Format |
 | --- | --- | --- | --- |
