@@ -32,7 +32,7 @@ Complete reference for all parameters accepted by `image_vsample` and `run_param
 | **probe_paratope** | If `probe_model` is set, the residue anchor point of the probe |
 | **probe_conjugation_target_info** | If `probe_model` is set, dictionary specifying emitter conjugation sites |
 | **probe_DoL** | Degree of labelling — efficiency of fluorophore conjugation (float) |
-| **probe_seconday_epitope** | Amino acid sequence defining the epitope on a primary antibody model |
+| **probe_secondary_epitope** | Amino acid sequence defining the epitope on a primary antibody model |
 | **probe_wobble_theta** | Enable probe angular wobble (float or `None`) |
 | **probe_steric_hindrance** | Minimum distance between adjacent epitopes (float) |
 | **peptide_motif** | Dictionary specifying motif extraction for probe target sequence |
