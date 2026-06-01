@@ -64,11 +64,11 @@ Pre-configured probes tuned to particular structures.
 
 | Modality | Description | PSF shape XYZ (nm) | Pixel size (nm) |
 | --- | --- | --- | --- |
-| **Widefield** | Widefield epifluorescence | 94 × 94 × 331 | 100 |
-| **Confocal** | Laser scanning confocal | 94 × 94 × 331 | 70 |
-| **AiryScan** | Zeiss AiryScan detector | — | — |
+| **Widefield** | Widefield epifluorescence | 130 × 130 × 400 | 100 |
+| **Confocal** | Laser scanning confocal | 100 × 100 × 300 | 70 |
+| **AiryScan** | Zeiss AiryScan detector | 61 × 61 × 230 | 40 |
 | **STED** | Stimulated emission depletion | 20 × 20 × 20 | 15 |
-| **SMLM** | Single-molecule localisation (effective image model) | 8 × 8 × 8 | 5 |
+| **SMLM** | Single-molecule localisation (effective image model) | 8 × 8 × 8 | 2 |
 | **Reference** | Idealised diffraction-limited reference | 5 × 5 × 5 | 5 |
 
 ### Thevathasan 2019 Variants
