@@ -75,19 +75,83 @@ See the [Templates](templates.md) page for the full list of available probes.
 
 ### Indirect Labelling (Primary + Secondary Probe)
 
-For indirect labelling, pass `primary_probe` and `secondary_probe` instead of a single `probe_template`:
+VLab4Mic supports modelling of conventional primary and secondary probe labelling strategy. In a first step, primary probes are placed on the target structure. Once placed, an epitope site within the probe model will define the spatial location for a secondary probe. Then the secondary probes are placed on the already positioned primary probes. 
+
+When secondary labelling is used, only the fluorophores on the secondary antibodies are included in the simulation.
+Example use with high-level function `image_vsample`:
 
 ```python
 from vlab4mic.experiments import image_vsample
+import matplotlib.pyplot as plt
+random_seed = 1
 
-images, noiseless, experiment = image_vsample(
-    structure="3J3Y",
-    primary_probe="HIV_capsid_p24_direct",
-    secondary_probe="anti-p24_primary_antibody_HIV",
-    multimodal=["SMLM"],
+# Define parameters for the primary probe, such as the probe template to use.
+# Further parameters can be specified; otherwise, defaults are taken from the
+# probe template specified.
+
+primary = dict(
+    probe_template = "Antibody",
+    probe_name="Primary-HIV",
+    probe_target_type = "Sequence",
+    probe_target_value = "SPRTLNA",
+)
+
+secondary_antibody = dict(
+    probe_template = "Antibody",
+    probe_name="Secondary-antibody",
+    probe_target_type = "Primary",
+    probe_target_value = "Primary-HIV",
+    probe_DoL=4,
+)
+modalities = ["STED", "SMLM",]
+image_outputs1, image_outputs_noiseless1, experiment1 = image_vsample(
+    structure = "3J3Y",
+    primary_probe = primary,
+    secondary_probe = secondary_antibody,
+    multimodal=modalities,
+    clear_experiment=True,
     run_simulation=True,
+    random_seed=random_seed
 )
 ```
+
+```python
+# visualise the position of fluorophores relative to the epitope sites
+fig = plt.figure(figsize=[10,15])
+ax1 = fig.add_subplot(1, 1, 1, projection="3d")
+target_colour="#01579D"
+experiment1.particle.gen_axis_plot(
+    with_sources=True, 
+    axis_object=ax1,
+    target_colour=target_colour,
+    source_plotsize=2, 
+    emitter_plotsize=10, 
+    source_plotalpha=1,
+    xlim=[-200,800],
+    ylim=[0,1200],
+    zlim=[0,700],
+    view_init=[90,0,0])
+```
+
+The secondary probe model can be changed in an initialised experiment by removing the probes and clearing the labelled structure.
+Note: adding primary and secondary probes with the `add_probe` method requires the flag `as_primary` to be set as `True` for the primary probe.
+The rest of the parameters can be passed as keyword arguments.
+
+
+```python
+secondary_nanobody = dict(
+    probe_template = "Nanobody",
+    probe_name="Secondary-nanobody",
+    probe_target_type = "Primary",
+    probe_target_value = "Primary-HIV",
+    probe_DoL=2,
+)
+experiment1.remove_probes()
+experiment1.clear_labelled_structure()
+experiment1.add_probe(as_primary=True, **primary)
+experiment1.add_probe(as_primary=False, **secondary_nanobody)
+```
+
 
 ### Displaying Simulation Results
 
@@ -156,7 +220,7 @@ The following parameters can be swept (pass `None` to use the default value):
 
 | Category | Parameter |
 |----------|-----------|
-| **Probe** | `probe_target_type`, `probe_target_value`, `probe_target_option`, `probe_model`, `probe_fluorophore`, `probe_paratope`, `probe_conjugation_target_info`, `probe_seconday_epitope`, `peptide_motif` |
+| **Probe** | `probe_target_type`, `probe_target_value`, `probe_target_option`, `probe_model`, `probe_fluorophore`, `probe_paratope`, `probe_conjugation_target_info`, `probe_secondary_epitope`, `peptide_motif` |
 | **Probe geometry** | `probe_distance_to_epitope`, `probe_steric_hindrance`, `probe_DoL`, `probe_wobble_theta` |
 | **Labelling** | `labelling_efficiency` |
 | **Structural integrity** | `structural_integrity`, `structural_integrity_small_cluster`, `structural_integrity_large_cluster` |
