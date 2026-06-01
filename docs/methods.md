@@ -156,6 +156,8 @@ image_outputs2, noiseless2 = experiment1.run_simulation()
 # visualisation can be done similar to example above
 
 ```
+![Secondary example](img/SecondaryExample.png)
+
 
 
 ### Displaying Simulation Results
