@@ -85,6 +85,16 @@ images, noiseless, experiment = image_vsample(run_simulation=True)
 
 ---
 
+## Video Tutorials
+
+| Tutorial | Video |
+| --- | --- |
+| Tutorial 1 | [![Watch Tutorial 1](https://img.youtube.com/vi/YkbJg9YjsTY/hqdefault.jpg)](https://youtu.be/YkbJg9YjsTY) |
+| Tutorial 2 | [![Watch Tutorial 2](https://img.youtube.com/vi/HLtcZQz92EU/hqdefault.jpg)](https://youtu.be/HLtcZQz92EU) |
+| Tutorial 3 | [![Watch Tutorial 3](https://img.youtube.com/vi/Sk4gfXF-R-Q/hqdefault.jpg)](https://youtu.be/Sk4gfXF-R-Q) |
+
+---
+
 ## Usage Options
 
 | Option | Skills Needed | Best For |
