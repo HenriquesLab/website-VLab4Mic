@@ -156,7 +156,7 @@ The following parameters can be swept (pass `None` to use the default value):
 
 | Category | Parameter |
 |----------|-----------|
-| **Probe** | `probe_target_type`, `probe_target_value`, `probe_target_option`, `probe_model`, `probe_fluorophore`, `probe_paratope`, `probe_conjugation_target_info`, `probe_seconday_epitope`, `peptide_motif` |
+| **Probe** | `probe_target_type`, `probe_target_value`, `probe_target_option`, `probe_model`, `probe_fluorophore`, `probe_paratope`, `probe_conjugation_target_info`, `probe_secondary_epitope`, `peptide_motif` |
 | **Probe geometry** | `probe_distance_to_epitope`, `probe_steric_hindrance`, `probe_DoL`, `probe_wobble_theta` |
 | **Labelling** | `labelling_efficiency` |
 | **Structural integrity** | `structural_integrity`, `structural_integrity_small_cluster`, `structural_integrity_large_cluster` |
