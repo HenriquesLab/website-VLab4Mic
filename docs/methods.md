@@ -150,6 +150,11 @@ experiment1.remove_probes()
 experiment1.clear_labelled_structure()
 experiment1.add_probe(as_primary=True, **primary)
 experiment1.add_probe(as_primary=False, **secondary_nanobody)
+experiment1.build(modules=["particle", "coordinate_field", "imager"])
+image_outputs2, noiseless2 = experiment1.run_simulation()
+
+# visualisation can be done similar to example above
+
 ```
 
 
