@@ -6,7 +6,7 @@ VLab4Mic codeless notebooks let you run imaging simulations and parameter sweeps
 
 | Category | Description | Notebook | Colab |
 | --- | --- | --- | --- |
-| **Main Interface** | Create virtual samples and simulate image acquisition with multiple imaging modalities | [![Jupyter](https://img.shields.io/badge/jupyter-blue.svg?style=flat&logo=jupyter&logoColor=white)](https://github.com/HenriquesLab/VLab4Mic/blob/main/notebooks/VLab4Mic_main.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/HenriquesLab/VLab4Mic/blob/main/notebooks/vLab4Mic_main.ipynb) |
+| **Main Interface** | Create virtual samples and simulate image acquisition with multiple imaging modalities | [![Jupyter](https://img.shields.io/badge/jupyter-blue.svg?style=flat&logo=jupyter&logoColor=white)](https://github.com/HenriquesLab/VLab4Mic/blob/main/notebooks/VLab4Mic_main.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/HenriquesLab/VLab4Mic/blob/main/notebooks/VLab4Mic_main.ipynb) |
 | **Parameter Sweeps** | Generate and analyze simulations over parameter ranges for optimization | [![Jupyter](https://img.shields.io/badge/jupyter-blue.svg?style=flat&logo=jupyter&logoColor=white)](https://github.com/HenriquesLab/VLab4Mic/blob/main/notebooks/VLab4Mic_parameter_sweeps.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/HenriquesLab/VLab4Mic/blob/main/notebooks/VLab4Mic_parameter_sweeps.ipynb) |
 
 ---
@@ -39,7 +39,7 @@ If the Colab badge does not work:
 
 To run the notebooks locally, first [install VLab4Mic](getting-started.md), then follow the steps below.
 
-### Step 3 — Launch Jupyter Lab
+### Step 1 — Launch Jupyter Lab
 
 ```bash
 jupyter lab
@@ -47,13 +47,13 @@ jupyter lab
 
 This will open Jupyter Lab in your web browser.
 
-### Step 4 — Download and Open a Notebook
+### Step 2 — Download and Open a Notebook
 
 Download a notebook from the table at the top of this page (click the Jupyter badge), or browse the [notebooks folder](https://github.com/HenriquesLab/VLab4Mic/tree/main/notebooks) on GitHub.
 
 Once downloaded, use the Jupyter Lab file browser to navigate to and open the `.ipynb` file.
 
-### Step 5 — Start Experimenting
+### Step 3 — Start Experimenting
 
 Follow the instructions in each notebook cell. All parameters are exposed through interactive widgets — no coding needed.
 

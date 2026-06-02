@@ -1,6 +1,6 @@
 site_name: VLab4Mic
 site_description: A Virtual Laboratory for Microscopy — simulate fluorescence microscopy experiments before stepping into the microscope room.
-site_url: https://website-vlab4mic.pages.dev/
+site_url: https://vlab4mic.henriqueslab.org/
 repo_url: https://github.com/HenriquesLab/website-VLab4Mic
 repo_name: HenriquesLab/website-VLab4Mic
 edit_uri: edit/main/docs/
@@ -12,15 +12,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode

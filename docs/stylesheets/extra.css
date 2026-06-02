@@ -1,3 +1,37 @@
+/* ============================================================
+   VLab4Mic theme — colours sampled from the project logo
+   (teal microscope → indigo/violet circuit ring → magenta).
+   Logo gradient: #5fc9c4 → #5191bc → #4958af → #7a5ea6 → #a65fb1
+   ============================================================ */
+
+/* ── Custom primary (teal) + accent (violet) ──────────────── */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color:        #1aa3a0;  /* teal — header, primary buttons */
+  --md-primary-fg-color--light: #5fc9c4;  /* logo microscope teal */
+  --md-primary-fg-color--dark:  #0f7e7c;  /* deep teal — hover/shadow */
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffffb3;
+  --md-typeset-a-color:         #168f8d;  /* links pick up the teal */
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color:              #7c5cd0;  /* violet — link hover, focus */
+  --md-accent-fg-color--transparent: #7c5cd01a;
+  --md-accent-bg-color:              #ffffff;
+  --md-accent-bg-color--light:       #ffffffb3;
+}
+
+/* Brighter teal links in dark mode for contrast on the slate background. */
+[data-md-color-scheme="slate"] {
+  --md-typeset-a-color: #57c7c2;
+}
+
+/* ── Header + tabs: teal→indigo→violet gradient (logo sweep) ─ */
+.md-header,
+.md-tabs {
+  background-image: linear-gradient(90deg, #1aa3a0 0%, #4958af 55%, #7c5cd0 100%);
+}
+
 /* ── Hero section ─────────────────────────────────────────── */
 .hero {
   text-align: center;
@@ -9,6 +43,19 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 0.4rem;
+  /* The hero title carries the full logo gradient. */
+  background-image: linear-gradient(
+    90deg,
+    #5fc9c4 0%,
+    #5191bc 28%,
+    #4958af 50%,
+    #7a5ea6 74%,
+    #a65fb1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .hero p {
@@ -19,9 +66,32 @@
   line-height: 1.6;
 }
 
-/* ── Grid cards — tighter gap on home ─────────────────────── */
+/* ── Primary call-to-action button: gradient to match ─────── */
+.md-button--primary {
+  background-image: linear-gradient(90deg, #1aa3a0 0%, #7c5cd0 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.md-button--primary:hover,
+.md-button--primary:focus {
+  background-image: linear-gradient(90deg, #0f7e7c 0%, #6a4ec0 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ── Grid cards — tighter gap + accent border on hover ────── */
 .md-content .grid.cards > ul {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.md-content .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Card material-icon glyphs in the logo teal. */
+.md-content .grid.cards .lg.middle {
+  color: var(--md-primary-fg-color);
 }
 
 /* ── Responsive hero text ─────────────────────────────────── */
