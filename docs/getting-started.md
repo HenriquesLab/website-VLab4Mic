@@ -4,10 +4,19 @@ VLab4Mic is compatible with **Python 3.10, 3.11, 3.12, and 3.13** on macOS, Wind
 
 ---
 
-## Step 1 — Install VLab4Mic
+## Step 1 — Create and Activate a Virtual Environment
 
 !!! tip
-    We recommend installing VLab4Mic in a dedicated virtual environment to avoid dependency conflicts. You can create one with Conda, pyenv, or Python's built-in `venv`; activate it before running the install command below.
+    We recommend installing VLab4Mic in a dedicated virtual environment to avoid dependency conflicts. The examples below use Python's built-in `venv`; pyenv or Conda can also be used as alternatives.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+---
+
+## Step 2 — Install VLab4Mic
 
 **For Python scripts only:**
 
