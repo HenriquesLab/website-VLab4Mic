@@ -102,3 +102,22 @@ images, noiseless, experiment = image_vsample(run_simulation=True)
 | **Google Colab** | None | Beginners, teaching, quick experiments |
 | **Local Jupyter Notebooks** | Basic installation | Smooth widget-based use |
 | **Python Scripts** | Comfortable with code | Full flexibility & automation |
+
+---
+
+## Citation
+
+If VLab4Mic helps your research, please cite:
+
+```bibtex
+@article{martinez_2026_vlab4mic,
+  title={VLab4Mic: prediction of structural resolvability in super-resolution microscopy},
+  author={Mart{\'{i}}nez, Dami{\'{a}}n and Saraiva, Bruno M. and Shakespeare, Tayla and
+          Bates, Mark and Owen, Dylan M. and Leterrier, Christophe and
+          Del Rosario, Mario and Henriques, Ricardo},
+  year={2026},
+  journal={bioRxiv},
+  doi={10.64898/2026.06.02.729521},
+  url={https://www.biorxiv.org/content/10.64898/2026.06.02.729521v1}
+}
+```
