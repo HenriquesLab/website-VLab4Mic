@@ -272,6 +272,8 @@ print(score["auc"], score["auc_interval"], score["accuracy"])
 
 SSIM and Pearson correlation (used by parameter sweeps) measure similarity to a reference image; they do not measure distinguishability.
 
+Measurements on single particles (ring radius and width, apparent breaks, detected corners, resolved sites) are in `vlab4mic.analysis.particle_measures`, e.g. `ring_measures(localisations)` or `sites_resolved(localisations, 3)`.
+
 ## Exporting Emitter and Localisation Tables
 
 The simulation stops at emitter positions. `export_positions` writes the emitter and localisation coordinates of the last simulation as ThunderSTORM-style CSV tables (`id`, `frame`, `x [nm]`, `y [nm]`, `z [nm]`, `intensity [photon]`, `uncertainty [nm]`) together with a YAML file of all parameters, for raw-frame or STED simulators and localisation analysis software:
