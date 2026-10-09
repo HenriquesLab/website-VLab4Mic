@@ -23,7 +23,7 @@ python path/to/script.py
 
 ## Article Figure Scripts
 
-Scripts used to generate the figures in the VLab4Mic publication. Each script is self-contained and demonstrates a specific feature or validation scenario.
+Scripts used to generate the figures in the VLab4Mic publication. Each script is self-contained and demonstrates a specific feature or validation scenario. Run them all with `python generate_figures.py` from the repository root; the analyses with repeated realisations read `VLAB4MIC_N_REALISATIONS` (default 100).
 
 | Figure | Description | Script |
 | --- | --- | --- |
@@ -32,6 +32,13 @@ Scripts used to generate the figures in the VLab4Mic publication. Each script is
 | **Fig. 3 (A–C)** | Parameter sweep panels for structural comparison | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/fig3_abc_panels.py) |
 | **Fig. 3 (D–E)** | Parameter sweep with labelling efficiency | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/fig3_de_panels.py) |
 | **Fig. 4** | Clathrin-coated structure (CCS) imaging | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/fig4_ccs.py) |
+| **Fig. 1c** | HIV-1 capsid: labelling efficiency, structural integrity and imaging method | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/fig1c_hiv_parameters.py) |
+| **Fig. 2b–d, Fig. S1** | Distinguishability (accuracy, ROC AUC) of domed and flat clathrin lattices, ventral and uniform orientations | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/fig2_clathrin_distinguishability.py) |
+| **Fig. 2e, Fig. S2** | Nuclear pore ring radius for SNAP-tag, nanobody and antibody labels against published values | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS2_npc_three_labels.py) |
+| **Fig. S4** | Fraction of PCNA particles with three resolved sites against localisation precision | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS4_pcna_sites.py) |
+| **Fig. S5** | Apparent breaks and corner detection in the nuclear pore against labelling efficiency | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS5_gaps.py) |
+| **Fig. S7** | HIV-1 capsid response curves: intact vs damaged capsid | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS7_hiv_response.py) |
+| **Table S7** | Run times | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/tableS7_runtimes.py) |
 | **Fig. S — AlphaFold** | Using a locally downloaded AlphaFold model as input structure | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS_alphafold_from_localfile.py) |
 | **Fig. S — Depth of field** | Effect of depth-of-field parameter on simulated images | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS_depth_of_field.py) |
 | **Fig. S — Image positioning** | Using a reference image to position epitopes in the virtual sample | [![script](https://img.shields.io/badge/script-grey)](https://github.com/HenriquesLab/VLab4Mic/blob/main/examples/article_figures/figS_image_for_positioning.py) |

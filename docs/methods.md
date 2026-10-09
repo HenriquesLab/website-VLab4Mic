@@ -193,7 +193,7 @@ sweep_gen = run_parameter_sweep(
 
 ### Specifying Sweep Parameters
 
-Pass parameter values as a **list** of explicit values, or as a **tuple `(min, max, nsteps)`** to generate linearly spaced values:
+Pass parameter values as a **list** of explicit values, or as a **tuple `(start, stop, step)`**, which gives `start, start + step, ...` up to `stop` (included), for any parameter:
 
 ```python
 from vlab4mic.sweep_generator import run_parameter_sweep
@@ -203,8 +203,8 @@ sweep_gen = run_parameter_sweep(
     probe_templates=["NPC_Nup96_Cterminal_direct"],
     sweep_repetitions=20,
     # Parameters to sweep
-    labelling_efficiency=(0, 1, 5),              # 5 values from 0 to 1
-    structural_integrity=(0, 1, 5),              # 5 values from 0 to 1
+    labelling_efficiency=(0, 1, 0.25),           # 0, 0.25, 0.5, 0.75, 1
+    structural_integrity=(0, 1, 0.25),           # 0, 0.25, 0.5, 0.75, 1
     structural_integrity_small_cluster=[300],    # Single value
     structural_integrity_large_cluster=[600],    # Single value
     exp_time=[0.001, 0.01],                      # Two values
@@ -228,9 +228,55 @@ The following parameters can be swept (pass `None` to use the default value):
 | Category | Parameter |
 |----------|-----------|
 | **Probe** | `probe_target_type`, `probe_target_value`, `probe_target_option`, `probe_model`, `probe_fluorophore`, `probe_paratope`, `probe_conjugation_target_info`, `probe_secondary_epitope`, `peptide_motif` |
-| **Probe geometry** | `probe_distance_to_epitope`, `probe_steric_hindrance`, `probe_DoL`, `probe_wobble_theta` |
+| **Probe geometry** | `probe_distance_to_epitope`, `probe_steric_hindrance`, `probe_DoL`, `probe_wobble_theta`, `probe_tilt_theta` |
 | **Labelling** | `labelling_efficiency` |
 | **Structural integrity** | `structural_integrity`, `structural_integrity_small_cluster`, `structural_integrity_large_cluster` |
-| **Virtual sample** | `sample_dimensions`, `particle_orientations`, `rotation_angles`, `minimal_distance` |
+| **Virtual sample** | `sample_dimensions`, `particle_orientations`, `xy_orientations`, `xz_orientations`, `yz_orientations`, `rotation_angles` |
 | **Imaging** | `pixelsize_nm`, `lateral_resolution_nm`, `axial_resolution_nm`, `psf_voxel_nm`, `depth_of_field_nm` |
 | **Acquisition** | `exp_time` |
+
+!!! note
+    `minimal_distance` and `peptide_motif` are accepted but not yet swept (a warning is printed).
+
+---
+
+## `run_replicates` — Independent Realisations at Fixed Parameters
+
+Each realisation of a virtual sample draws its own labelling, orientation, placement and noise. `run_replicates` simulates N realisations and returns, for each, the images and the emitter and localisation positions. With a `random_seed`, the sequence is reproducible.
+
+```python
+from vlab4mic.experiments import run_replicates
+
+results, experiment = run_replicates(
+    n_replicates=50,
+    structure="7R5K",
+    probe_template="NPC_Nup96_Cterminal_direct",
+    number_of_particles=1,
+    multimodal=["SMLM"],
+    random_seed=1,
+)
+image = results[0]["images"]["SMLM"]["ch0"]
+positions = results[0]["positions"]["SMLM"]["ch0"]   # emitters and localisations
+```
+
+## Structural Distinguishability
+
+Structural distinguishability is the accuracy with which two candidate structures can be told apart under stated parameters. Images of each structure (one per realisation) are reduced to rotation-invariant features, a classifier is evaluated by stratified k-fold cross-validation, and the out-of-fold scores give the accuracy and the area under the ROC curve (AUC), with bootstrap intervals over realisations. An AUC of 0.5 means the structures cannot be told apart; 1 means every image is assigned correctly.
+
+```python
+from vlab4mic.analysis.distinguishability import distinguishability_from_replicates
+
+score = distinguishability_from_replicates(results_a, results_b, modality="SMLM")
+print(score["auc"], score["auc_interval"], score["accuracy"])
+```
+
+SSIM and Pearson correlation (used by parameter sweeps) measure similarity to a reference image; they do not measure distinguishability.
+
+## Exporting Emitter and Localisation Tables
+
+The simulation stops at emitter positions. `export_positions` writes the emitter and localisation coordinates of the last simulation as ThunderSTORM-style CSV tables (`id`, `frame`, `x [nm]`, `y [nm]`, `z [nm]`, `intensity [photon]`, `uncertainty [nm]`) together with a YAML file of all parameters, for raw-frame or STED simulators and localisation analysis software:
+
+```python
+experiment.export_positions("/path/to/output")
+```
+

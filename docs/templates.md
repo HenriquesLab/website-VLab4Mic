@@ -38,6 +38,9 @@ These probes work with any atomic structure. Specify your target using `probe_ta
 | **GFP_w_nanobody** | Indirect label based on a nanobody–eGFP complex | 6XZF |
 | **mMaple** | Indirect label based on the mTFP1 fluorescent protein | 2HQK |
 | **SNAP-tag** | Indirect label based on SNAP-tag with conjugated fluorophore | 6Y8P |
+| **Halo-tag** | Indirect label based on HaloTag with conjugated fluorophore | 5UXZ |
+
+Probe templates set the wobble (`binding.wobble_range.theta`, degrees; 10 for the antibody and nanobody probes) and the mean tilt (`binding.tilt`, degrees; 0 by default). Probe distances (`binding.distance`) are in Å.
 
 ### Structure-Specific Probes
 
@@ -66,19 +69,9 @@ Pre-configured probes tuned to particular structures.
 | --- | --- | --- | --- |
 | **Widefield** | Widefield epifluorescence | 130 × 130 × 400 | 100 |
 | **Confocal** | Laser scanning confocal | 100 × 100 × 300 | 70 |
-| **AiryScan** | Zeiss AiryScan detector | 61 × 61 × 230 | 40 |
-| **STED** | Stimulated emission depletion | 20 × 20 × 20 | 15 |
-| **SMLM** | Single-molecule localisation (effective image model) | 8 × 8 × 8 | 2 |
+| **AiryScan** | Zeiss AiryScan detector (narrower Gaussian, no pixel reassignment) | 60 × 60 × 230 | 40 |
+| **STED** | 2D STED (effective resolution, no depletion physics) | 20 × 20 × 300 | 15 |
+| **SMLM** | Single-molecule localisation: localisations (precision 5 nm, 5 per emitter) rendered without PSF convolution | 8 × 8 × 8 (emitters only) | 2 |
+
+The PSF widths are the effective resolution of each method, a user input; set them to the values measured on your instrument with `update_modality`.
 | **Reference** | Idealised diffraction-limited reference | 5 × 5 × 5 | 5 |
-
-### Thevathasan 2019 Variants
-
-Modality configurations (the `*_Thev2016` config family) tuned to the experimental parameters reported in [Thevathasan *et al.* 2019](https://doi.org/10.1038/s41592-019-0574-9), for use in article figure reproductions.
-
-| Modality | Description | PSF shape XYZ (nm) | Pixel size (nm) |
-| --- | --- | --- | --- |
-| **Widefield_Thev2016** | Widefield — Thevathasan 2019 parameters | 94 × 94 × 331 | 100 |
-| **Confocal_Thev2016** | Confocal — Thevathasan 2019 parameters | 94 × 94 × 331 | 70 |
-| **AiryScan_Thev2016** | AiryScan — Thevathasan 2019 parameters | 61 × 61 × 230 | 40 |
-| **STED_Thev2016** | STED — Thevathasan 2019 parameters | 15 × 15 × 20 | 15 |
-| **STORM_Thev2016** | STORM/SMLM — Thevathasan 2019 parameters | 8 × 8 × 8 | 5 |
